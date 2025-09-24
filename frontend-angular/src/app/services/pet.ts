@@ -1,6 +1,6 @@
-// src/app/services/pet.ts
+// src/app/services/pet.ts 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pet } from '../models/pet.model';
 
@@ -12,7 +12,17 @@ export class PetService {
 
   constructor(private http: HttpClient) { }
 
-  getPets(): Observable<Pet[]> {
-    return this.http.get<Pet[]>(`${this.apiUrl}/pets/`);
+
+  getPets(busca?: string, especie?: string): Observable<Pet[]> {
+    
+    let params = new HttpParams();
+    if (busca) {
+      params = params.append('busca', busca);
+    }
+    if (especie) {
+      params = params.append('especie', especie);
+    }
+
+    return this.http.get<Pet[]>(`${this.apiUrl}/pets/`, { params });
   }
 }

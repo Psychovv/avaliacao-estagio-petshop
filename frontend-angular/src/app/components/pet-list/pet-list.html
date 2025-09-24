@@ -2,8 +2,24 @@
   <h2>Pets Cadastrados</h2>
 
   <div class="toolbar">
-    </div>
-
+    <form (ngSubmit)="carregarPets()" class="filter-form">
+      <input
+        type="text"
+        placeholder="Buscar por nome..."
+        [(ngModel)]="busca"
+        name="busca"
+        class="form-input"
+      />
+      <select [(ngModel)]="especie" name="especie" class="form-select">
+        <option value="">Todas as espécies</option>
+        <option value="Cachorro">Cachorro</option>
+        <option value="Gato">Gato</option>
+        <option value="Outro">Outro</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+      <button type="button" (click)="limparFiltros()" class="btn btn-secondary">Limpar</button>
+    </form>
+  </div>
   <div class="table-responsive">
     <table class="pet-table">
       <thead>
