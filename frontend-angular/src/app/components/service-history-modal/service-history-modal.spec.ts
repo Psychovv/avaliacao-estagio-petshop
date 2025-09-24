@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ServiceHistoryModal } from './service-history-modal';
 
-import { PetListComponent } from './pet-list';
-
-describe('PetListComponent', () => {
-  let component: PetListComponent;
-  let fixture: ComponentFixture<PetListComponent>;
+describe('ServiceHistoryModal', () => {
+  let component: ServiceHistoryModal;
+  let fixture: ComponentFixture<ServiceHistoryModal>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PetListComponent]
+      imports: [ServiceHistoryModal]
     })
     .compileComponents();
 
-   
-    fixture = TestBed.createComponent(PetListComponent);
+    fixture = TestBed.createComponent(ServiceHistoryModal);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

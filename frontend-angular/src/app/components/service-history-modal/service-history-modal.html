@@ -1,0 +1,32 @@
+<p>service-history-modal works!</p>
+<div class="modal-overlay" (click)="fecharModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header" *ngIf="pet">
+      <h3>Histórico de {{ pet.nome }}</h3>
+      <button class="close-button" (click)="fecharModal()">×</button>
+    </div>
+
+    <div *ngIf="isLoading">Carregando histórico...</div>
+    <div *ngIf="error">{{ error }}</div>
+
+    <div *ngIf="!isLoading && !error">
+      <ul *ngIf="servicos.length > 0; else noServices" class="service-list">
+        <li *ngFor="let servico of servicos">
+          <span>{{ servico.descricao }}</span>
+          <span class="service-date">{{ servico.data | date:'dd/MM/yyyy' }}</span>
+        </li>
+      </ul>
+      <ng-template #noServices>
+        <p class="no-services">Nenhum serviço registrado para este pet.</p>
+      </ng-template>
+
+      <form class="add-service-form" (ngSubmit)="adicionarServico()">
+        <h4>Adicionar Novo Serviço</h4>
+        <div class="form-group">
+          <input type="text" placeholder="Descrição do serviço (ex: Banho e Tosa)" class="form-input" name="descricao" [(ngModel)]="novaDescricao" required>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!novaDescricao">Adicionar Serviço</button>
+      </form>
+    </div>
+  </div>
+</div>

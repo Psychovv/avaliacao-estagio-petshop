@@ -1,0 +1,38 @@
+<div class="form-container">
+  <h2>Cadastrar Novo Pet</h2>
+  <form (ngSubmit)="salvarPet()" #petForm="ngForm">
+    <div class="form-group">
+      <label for="nome">Nome do Pet</label>
+      <input type="text" id="nome" name="nome" required [(ngModel)]="pet.nome" #nome="ngModel" class="form-input">
+      <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert-danger">
+        O nome é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="especie">Espécie</label>
+      <select id="especie" name="especie" required [(ngModel)]="pet.especie" #especie="ngModel" class="form-select">
+        <option value="" disabled>Selecione uma espécie</option>
+        <option value="Cachorro">Cachorro</option>
+        <option value="Gato">Gato</option>
+        <option value="Outro">Outro</option>
+      </select>
+       <div *ngIf="especie.invalid && (especie.dirty || especie.touched)" class="alert-danger">
+        A espécie é obrigatória.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tutor">Nome do Tutor</label>
+      <input type="text" id="tutor" name="tutor" required [(ngModel)]="pet.tutor" #tutor="ngModel" class="form-input">
+       <div *ngIf="tutor.invalid && (tutor.dirty || tutor.touched)" class="alert-danger">
+        O nome do tutor é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="petForm.invalid" class="btn btn-success">Salvar</button>
+      <button type="button" routerLink="/" class="btn btn-secondary">Cancelar</button>
+    </div>
+  </form>
+</div>

@@ -18,8 +18,10 @@
       </select>
       <button type="submit" class="btn btn-primary">Buscar</button>
       <button type="button" (click)="limparFiltros()" class="btn btn-secondary">Limpar</button>
+      <button type="button" routerLink="/pets/novo" class="btn btn-success">Novo Pet</button>
     </form>
   </div>
+
   <div class="table-responsive">
     <table class="pet-table">
       <thead>
@@ -34,15 +36,26 @@
       </thead>
       <tbody>
         <tr *ngFor="let pet of pets">
-          <td>{{ pet.id }}</td>
-          <td>{{ pet.nome }}</td>
-          <td>{{ pet.especie }}</td>
-          <td>{{ pet.tutor }}</td>
-          <td>{{ pet.criado_em | date:'dd/MM/yyyy HH:mm' }}</td>
-          <td>
-            </td>
+          <td data-label="ID">{{ pet.id }}</td>
+          <td data-label="Nome">{{ pet.nome }}</td>
+          <td data-label="Espécie">{{ pet.especie }}</td>
+          <td data-label="Tutor">{{ pet.tutor }}</td>
+          <td data-label="Criação">{{ pet.criado_em | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td data-label="Ações" class="actions-cell">
+            <button (click)="abrirModalHistorico(pet)" class="btn btn-info">Histórico</button>
+            <button (click)="excluirPet(pet.id, pet.nome)" class="btn btn-danger">Excluir</button>
+          </td>
+        </tr>
+        <tr *ngIf="pets.length === 0">
+            <td colspan="6" class="empty-row">Nenhum pet encontrado.</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+<app-service-history-modal 
+  *ngIf="petSelecionado"
+  [pet]="petSelecionado"
+  (fechar)="fecharModalHistorico()"
+></app-service-history-modal>

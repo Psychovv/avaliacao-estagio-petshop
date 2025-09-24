@@ -1,0 +1,73 @@
+.list-container h2 {
+  margin-top: 0;
+}
+
+.toolbar {
+  margin-bottom: 20px;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.form-input,
+.form-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.pet-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.pet-table th,
+.pet-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.pet-table thead th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary { background-color: var(--cor-primaria); }
+.btn-secondary { background-color: var(--cor-secundaria); }
+.btn-success { background-color: var(--cor-sucesso); }
+.btn-danger { background-color: var(--cor-perigo); }
+.btn-info { background-color: #17a2b8; }
+
+.empty-row {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
