@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos Globais - styles.css */
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+ :root {
+   --cor-primaria: #007bff;
+   --cor-secundaria: #6c757d;
+   --cor-sucesso: #28a745;
+   --cor-perigo: #dc3545;
+   --cor-fundo: #f8f9fa;
+   --cor-texto: #212529;
+   --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+
+ body {
+   margin: 0;
+   font-family: 'Poppins', sans-serif;
+   background-color: var(--cor-fundo);
+   color: var(--cor-texto);
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+ }
+
+ main.container {
+   flex: 1;
+   width: 90%;
+   max-width: 1200px;
+   margin: 20px auto;
+   padding: 20px;
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: var(--sombra);
+ }
+
+ .header {
+   background-color: white;
+   box-shadow: var(--sombra);
+   padding: 0 5%;
+ }
+ .navbar {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 70px;
+   max-width: 1200px;
+   margin: 0 auto;
+ }
+ .navbar-brand {
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: var(--cor-primaria);
+   text-decoration: none;
+ }
+
+ .footer {
+   background-color: #343a40;
+   color: white;
+   text-align: center;
+   padding: 20px 0;
+   margin-top: auto;
+ }

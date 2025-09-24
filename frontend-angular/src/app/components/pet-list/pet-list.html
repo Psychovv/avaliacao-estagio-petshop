@@ -1,0 +1,32 @@
+<div class="list-container">
+  <h2>Pets Cadastrados</h2>
+
+  <div class="toolbar">
+    </div>
+
+  <div class="table-responsive">
+    <table class="pet-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Espécie</th>
+          <th>Tutor</th>
+          <th>Data de Criação</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of pets">
+          <td>{{ pet.id }}</td>
+          <td>{{ pet.nome }}</td>
+          <td>{{ pet.especie }}</td>
+          <td>{{ pet.tutor }}</td>
+          <td>{{ pet.criado_em | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
